@@ -5,7 +5,4 @@ y = input('Y = ')
 z = input('Z = ')
 first = not (x or y or z)
 second = (not x) and (not y) and (not z)
-if first == second:
-    print('Истина')
-else:
-    print('Ложь')
+print(first == second)
