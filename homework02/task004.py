@@ -19,6 +19,9 @@ f.close()
 for i in content:
     mult = 1
     for j in range(len(i)):
-        if i[j] != '\n' and int(i[j]) <= len(list)-1:
-            mult *= list[int(i[j])]
+        if i[j] != '\n':
+            if int(i[j]) <= len(list)-1:
+                mult *= list[int(i[j])]
+            else:
+                mult *= 0
     print(mult)
