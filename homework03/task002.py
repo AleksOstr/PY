@@ -1,0 +1,16 @@
+# Напишите программуЮ которая найдет произведение па чисел списка.
+# Парой считаем первый и последний элемент, второй и предпоследний и т.д.
+# Пример:
+# [2, 3, 5, 6] => [12, 15]
+
+from random import randint
+
+
+nums = []
+for i in range(randint(4, 8)):
+    nums.append(randint(5, 11))
+
+result = []
+for i in range((len(nums) // 2)):
+    result.append(nums[i] * nums[len(nums) - 1 - i])
+print(nums, result, sep=' -> ')
