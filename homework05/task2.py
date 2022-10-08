@@ -8,6 +8,12 @@ def check_input(data: str):
         data = input('Введено неверное значение. Повторите ввод\n')
     return data
 
+def another_round():
+    if input('Хотите сыграть еще? да / нет\n') == 'да':
+        return True
+    else:
+        return False
+
 
 game_is_on = True
 while game_is_on:
@@ -52,6 +58,8 @@ while game_is_on:
             print('Последний ход сделал Игрок 2, все конфеты достаются ему\n Конец игры')
         else:
             print('Последний ход сделал Игрок 1, все конфеты достаются ему\n Конец игры')
+        game_is_on = another_round()
+
 
     elif game_mode == '2':
         total = 2021
@@ -89,6 +97,7 @@ while game_is_on:
             print('Последний ход сделал компьютер и забрал себе все конфеты\n Конец игры')
         else:
             print('Поздравляем! Вы сделали последний ход и все конфеты достаются вам!\nКонец игры')
+        game_is_on = another_round()
 
 
     # elif game_mode == '3':
