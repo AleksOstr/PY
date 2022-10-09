@@ -1,5 +1,6 @@
 #  Крестики-нолики
 
+from operator import truediv
 from random import randint
 
 
@@ -112,6 +113,51 @@ while game_is_on:
         else:
             print('Выиграл Игрок 1!')
             game_is_on = another_round()
+    if game_mode == '2':
+        print('Выбран режим "Игрок против Компьютера".\nИгрок - крестики. Компьютер - нолики.\n')
+        coin = randint(1,2)
+        if coin == 1:
+            player = True
+        else:
+            player = False
+        finish = False
+        while not free_cells == 0 and not finish:
+
+            if player:
+                print('Игрок 1, ваш ход\n')
+                show_field(cells)
+                move = int(check_input(input('Выберите ячейку\n')))
+                while cells[move-1] == 'X' or cells[move-1] == '0':
+                    move = int(check_input(input('Эта ячейка уже занята! Выберите другую\n')))
+                cells[move-1] = 'X'
+                player = False
+                free_cells -= 1
+                finish = check_field(cells)
+            else:
+                move = randint(0, len(cells)-1)
+                while cells[move] == 'X' or cells[move] == '0':
+                    move = randint(0, len(cells)-1)
+                cells[move] = '0'
+                player = True
+                free_cells -= 1
+                print('Компьютер делает ход\n')
+                show_field(cells)
+                finish = check_field(cells)
+
+        show_field(cells)
+        if free_cells == 0:
+            print('Ничья!')
+            game_is_on = another_round()
+        
+        elif player:
+            print('Выиграл Компьютер!')
+            game_is_on = another_round()
+        
+        else:
+            print('Выиграл Игрок!')
+            game_is_on = another_round()
+                
+
     if game_mode == 'exit':
         print('До свидания!')
         game_is_on = False
