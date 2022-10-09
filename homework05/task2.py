@@ -27,10 +27,9 @@ while game_is_on:
         coin = randint(1, 2)
         if coin == 1:
             print('Первым ходит игрок 1')
-            player1, player2 = True, False
-        else:
+            player1 = True
             print('Первым ходит игрок 2')
-            player1, player2 = False, True
+            player1 = False
         while total > 0:
             if player1:
                 move = int(check_input(input('Ход игрока 1\n Сколько конфет вы возьмете?\n')))
@@ -41,7 +40,7 @@ while game_is_on:
                     while not 0 < move <= total:
                         move = int(check_input(input('Вы не можете взять столько конфет. Повторите попытку\n')))
                 total -= move
-                player1, player2 = player2, player1
+                player1 = False
                 print(f'Игрок 1 взял {move} конфет. Осталось {total} конфет')
             else:
                 move = int(check_input(input('Ход игрока 2\n Сколько конфет вы возьмете?\n')))
@@ -52,7 +51,7 @@ while game_is_on:
                     while not 0 < move <= total:
                         move = int(check_input(input('Вы не можете взять столько конфет. Повторите попытку\n')))
                 total -= move
-                player1, player2 = player2, player1
+                player1 = True
                 print(f'Игрок 2 взял {move} конфет. Осталось {total} конфет')
         if player1:
             print('Последний ход сделал Игрок 2, все конфеты достаются ему\n Конец игры')
@@ -65,10 +64,10 @@ while game_is_on:
         total = 2021
         coin = randint(1, 2)
         if coin == 1:
-            player, bot = True, False
+            player = True
             print('Первым ходит Игрок')
         else:
-            player, bot = False, True
+            player = False
             print('Первым ходит компьютер')
         while total > 0:
             if player:
@@ -80,18 +79,18 @@ while game_is_on:
                     while not 0 < move <= total:
                         move = int(check_input(input('Вы не можете взять столько конфет. Повторите попытку\n')))
                 total -= move
-                player, bot = bot, player
+                player = False
                 print(f' Вы взяли {move} конфет. Осталось {total} конфет')
             else:
                 if total > 28:
                     move = randint(1, 28)
                     total -= move
-                    player, bot = bot, player
+                    player = True
                     print(f'Компьютер берет {move} конфет. Осталось {total} конфет')
                 elif total <= 28:
                     move = randint(1, total)
                     total -= move
-                    player, bot = bot, player
+                    player = True
                     print(f'Компьютер берет {move} конфет. Осталось {total} конфет')
         if player:
             print('Последний ход сделал компьютер и забрал себе все конфеты\n Конец игры')
@@ -99,8 +98,43 @@ while game_is_on:
             print('Поздравляем! Вы сделали последний ход и все конфеты достаются вам!\nКонец игры')
         game_is_on = another_round()
 
-
-    # elif game_mode == '3':
+    elif game_mode == '3':
+        total = 2021
+        coin = randint(1,2)
+        if coin == 1:
+            player = True
+            print('Первым ходит Игрок')
+        else:
+            player = False
+            print('Первым ходит компьютер')
+        while total > 0:
+            if player:
+                move = int(check_input(input('Ваш ход. Сколько конфет вы возьмете?\n')))
+                if total > 28:
+                    while not 0 < move <= 28:
+                        move = int(check_input(input('Вы не можете взять столько конфет. Повторите попытку\n')))
+                elif total <= 28:
+                    while not 0 < move <= total:
+                        move = int(check_input(input('Вы не можете взять столько конфет. Повторите попытку\n')))
+                total -= move
+                player = False
+                print(f'Вы взяли {move} конфет. Осталось {total} конфет')
+            else:
+                if total > 28:
+                    move = total % 29
+                    total -= move
+                    player = True
+                    print(f'Компьютер берет {move} конфет. Осталось {total} конфет')
+                elif total <= 28:
+                    move = total
+                    total -= move
+                    player = True
+                    print(f'Компьютер берет {move} конфет. Осталось {total} конфет')
+        if player:
+            print('Последний ход сделал компьютер и забрал себе все конфеты\n Конец игры')
+        else:
+            print('Поздравляем! Вы сделали последний ход и все конфеты достаются вам!\nКонец игры')
+        game_is_on = another_round()
 
     elif game_mode == 'exit':
         print('До свидания!')
