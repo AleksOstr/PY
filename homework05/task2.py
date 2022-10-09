@@ -34,10 +34,10 @@ while game_is_on:
             if player1:
                 move = int(check_input(input('Ход игрока 1\n Сколько конфет вы возьмете?\n')))
                 if total > 28:
-                    while not 0 < move <= 28:
+                    while not 0 <= move <= 28:
                         move = int(check_input(input('Вы не можете взять столько конфет. Повторите попытку\n')))
                 elif total <= 28:
-                    while not 0 < move <= total:
+                    while not 0 <= move <= total:
                         move = int(check_input(input('Вы не можете взять столько конфет. Повторите попытку\n')))
                 total -= move
                 player1 = False
@@ -45,10 +45,10 @@ while game_is_on:
             else:
                 move = int(check_input(input('Ход игрока 2\n Сколько конфет вы возьмете?\n')))
                 if total > 28:
-                    while not 0 < move <= 28:
+                    while not 0 <= move <= 28:
                         move = int(check_input(input('Вы не можете взять столько конфет. Повторите попытку\n')))
                 elif total <= 28:
-                    while not 0 < move <= total:
+                    while not 0 <= move <= total:
                         move = int(check_input(input('Вы не можете взять столько конфет. Повторите попытку\n')))
                 total -= move
                 player1 = True
@@ -73,10 +73,10 @@ while game_is_on:
             if player:
                 move = int(check_input(input('Ваш ход. Сколько конфет вы возьмете?\n')))
                 if total > 28:
-                    while not 0 < move <= 28:
+                    while not 0 <= move <= 28:
                         move = int(check_input(input('Вы не можете взять столько конфет. Повторите попытку\n')))
                 elif total <= 28:
-                    while not 0 < move <= total:
+                    while not 0 <= move <= total:
                         move = int(check_input(input('Вы не можете взять столько конфет. Повторите попытку\n')))
                 total -= move
                 player = False
@@ -111,10 +111,10 @@ while game_is_on:
             if player:
                 move = int(check_input(input('Ваш ход. Сколько конфет вы возьмете?\n')))
                 if total > 28:
-                    while not 0 < move <= 28:
+                    while not 0 <= move <= 28:
                         move = int(check_input(input('Вы не можете взять столько конфет. Повторите попытку\n')))
                 elif total <= 28:
-                    while not 0 < move <= total:
+                    while not 0 <= move <= total:
                         move = int(check_input(input('Вы не можете взять столько конфет. Повторите попытку\n')))
                 total -= move
                 player = False
