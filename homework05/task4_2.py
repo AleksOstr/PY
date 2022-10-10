@@ -1,14 +1,22 @@
-# def rle_decrypt(file_name: str):
-#     with open(file_name, 'r') as file:
-#         cypted_data = file.readlines()
+# RLE распаковщик
+def rle_decrypt(file_name: str):
+    with open(file_name, 'r') as file:
+        cr_data = ''.join(file.readlines())
+    arr = []
+    string = ''
+    for i in range(len(cr_data)):
+        if cr_data[i].isdigit():
+            string += cr_data[i]
+        else:
+            arr.append([int(string), cr_data[i]])
+            string = ''
+    decr_data = ''
+    for i in arr:
+        for j in range(len(i)-1):
+            decr_data += i[j] * i[j+1]
+    print(decr_data)
+    with open('decrypted_data.txt', 'w') as file:
+        file.write(decr_data)
 
-# encrypted = ''
-# for i in crypted:
-#     for j in range(len(i)-1):
-#         encrypted += i[j] * i[j+1]
-# print(encrypted)
 
-
-with open('crypted_data.txt', 'r') as f:
-    cr_data = (''.join(f.readlines()))
-print(cr_data)
+rle_decrypt('crypted_data.txt')
