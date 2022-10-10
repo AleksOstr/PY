@@ -1,4 +1,4 @@
-
+# RLE запаковщик
 
 def rle_crypt(file_name: str):
     with open(file_name, 'r') as file:
