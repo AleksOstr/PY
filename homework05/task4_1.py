@@ -14,7 +14,7 @@ def rle_crypt(file_name: str):
                 count = 1
         string += str(count) + i[j+1]
     with open('crypted_data.txt', 'w') as file:
-        file.write(''.join(list(map(str, string))))
+        file.write(string)
 
 rle_crypt('data.txt')
 
