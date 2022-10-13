@@ -13,5 +13,4 @@
 arr = [1, 5, 2, 3, 4, 2, 6, 7, 4, 3, 2, 8, 9, 2, 1,
        4, 5, 6, 7, 3, 2, 11, 4, 6, 2, 3, 4, 16, 7, 8, 24]
 
-result = list(filter(lambda x: arr.count(x) == 1, arr))
-print(result)
+print(list(filter(lambda x: arr.count(x) == 1, arr)))
