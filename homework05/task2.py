@@ -28,6 +28,7 @@ while game_is_on:
         if coin == 1:
             print('Первым ходит игрок 1')
             player1 = True
+        else:
             print('Первым ходит игрок 2')
             player1 = False
         while total > 0:
