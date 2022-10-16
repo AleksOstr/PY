@@ -33,7 +33,6 @@ def add_contact_by_csv(filename: str):
     data = []
     with open(filename, 'r') as file:
         data = [line.strip('\n').split(';') for line in file]
-    print(data)
     with open('phonebook.csv', 'a') as file:
         for record in data:
             for value in record:
@@ -41,4 +40,13 @@ def add_contact_by_csv(filename: str):
             file.write('\n')
     v.show_menu()
 
-add_contact_by_csv('dotcomma.csv')
+def export_to_txt():
+    records = read_phonebook()
+    with open('phonebook.txt', 'a') as file:
+        for record in records:
+            file.write(' '.join(record))
+            file.write('\n')
+    v.show_menu()
+    
+export_to_txt()
+
