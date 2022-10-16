@@ -1,4 +1,5 @@
 import model as m
+import controller as c
 
 def check_for_num(data: str):
     while not data.isdigit():
@@ -23,6 +24,7 @@ def show_phonebook():
         for key, value in line.items():
             print(f'{key}: {value}')
         print('\n')
+    c.run_phonebook()
 
 def show_contact(num):
     data = m.read_phonebook()
