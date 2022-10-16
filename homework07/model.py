@@ -47,6 +47,3 @@ def export_to_txt():
             file.write(' '.join(record))
             file.write('\n')
     v.show_menu()
-    
-export_to_txt()
-
