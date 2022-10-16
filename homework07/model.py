@@ -8,7 +8,9 @@ def stop_phonebook():
 def read_phonebook():
     with open('phonebook.csv', 'r') as file:
         data = [line.strip().split(';') for line in file]
-    return data
+    fields = ['Фамилия', 'Имя', 'Номер телефона', 'Описание']
+    output = [dict(zip(fields, record)) for record in data]
+    return output
 
 def add_contact():
     surname = input('Введите фамилию\n')
@@ -46,4 +48,30 @@ def export_to_txt():
         for record in records:
             file.write(' '.join(record))
             file.write('\n')
+    v.show_menu()
+
+def find_by_phonenumber():
+    data = read_phonebook()
+    phone_number = input('Укажите номер телефона\n')
+    flag = False
+    for i in range(len(data)):
+        for key, value in data[i].items():
+            if phone_number in value:
+                flag = True
+                v.show_contact(i)
+    if not flag:
+        print('Номер не найден\n')
+    v.show_menu()
+            
+def find_by_surname():
+    data = read_phonebook()
+    surname = input('Введите фамилию\n')
+    flag = False
+    for i in range(len(data)):
+        for key, value in data[i].items():
+            if surname.lower() in value.lower():
+                flag = True
+                v.show_contact(i)
+    if not flag:
+        print('Совпадений не найдено')
     v.show_menu()

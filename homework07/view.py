@@ -1,4 +1,3 @@
-from fileinput import filename
 import model as m
 
 def check_for_num(data: str):
@@ -20,12 +19,16 @@ def show_menu():
 
 def show_phonebook():
     data = m.read_phonebook()
-    fields = ['Фамилия', 'Имя', 'Номер телефона', 'Описание']
-    output = [dict(zip(fields, record)) for record in data]
-    for line in output:
+    for line in data:
         for key, value in line.items():
             print(f'{key}: {value}')
         print('\n')
+
+def show_contact(num):
+    data = m.read_phonebook()
+    for key, value in data[num].items():
+        print(f'{key}: {value}')
+    print('\n')
 
 def get_filename():
     name = input('Введите имя файла\n')
