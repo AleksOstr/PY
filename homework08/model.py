@@ -5,7 +5,7 @@ import json
 
 def read_csv():
     database = []
-    with open('database.csv', 'r', encoding='utf-8-sig') as file:
+    with open('database.csv', 'r', encoding='utf-8-sig', newline='\r\n') as file:
         reader = csv.reader(file, delimiter=';')
         for row in reader:
             employee = {}
@@ -23,5 +23,10 @@ def check_id(id: int):
     for employee in database:
         while id == employee['id']:
             id = randint(1, 1000)
-    return id 
+    return id
 
+def add_employee():
+    employee_info = view.get_employee_info()
+    with open('database.csv', 'a', encoding='utf-8', newline='\r\n') as f:
+        csv_writer = csv.writer(f, delimiter=';')
+        csv_writer.writerow(employee_info.values())
