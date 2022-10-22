@@ -8,7 +8,7 @@ def check_for_number(data: str):
     return data
 # 1. DONE
 # 2. DONE
-# 3.
+# 3. DONE
 # 4. DONE
 # 5.
 # 6.
@@ -32,7 +32,8 @@ def show_employee(employee: dict):
     fields = ['ID','Фамилия','Имя','Должность','Зарплата','Телефон']
     output = dict(zip(fields, list(employee.values())))
     for key, value in output.items():
-        print(f'{key}: {value}', end=' ')
+        print(f'{key}: {value}', sep=' ', end='\n')
+    print('\n')
 
 def get_employee_info():
     employee = {}
@@ -49,4 +50,8 @@ def get_last_name():
 
 def get_employee_position():
     return input('Введите должность сотрудника\n')
+
+def get_salary_range():
+    salary_range = list(map(float, input('Введите диапазон через тире\n').split('-')))
+    return salary_range
 

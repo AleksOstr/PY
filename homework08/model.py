@@ -47,3 +47,9 @@ def job_selection(job):
     for employee in database:
         if job.lower() in employee['position'].lower():
             view.show_employee(employee)
+
+def sample_by_salary(salary_range: list):
+    database = read_csv()
+    for employee in database:
+        if min(salary_range) <= employee['salary'] <= max(salary_range):
+            view.show_employee(employee)
