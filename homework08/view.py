@@ -11,7 +11,7 @@ def check_for_number(data: str):
 # 3. DONE
 # 4. DONE
 # 5. DONE
-# 6.
+# 6. DONE
 # 7.
 # 8. DONE
 # 9. DONE
@@ -58,3 +58,10 @@ def get_salary_range():
 def get_id():
     return int(check_for_number(input('Введите ID сотрудника\n')))
 
+def get_updated_info(employee: dict):
+    employee['last_name'] = input('Введите фамилию сотрудника\n')
+    employee['first_name'] = input('Введите имя сотрудника\n')
+    employee['position'] = input('Введите должность сотрудника\n')
+    employee['salary'] = float(input('Введите зарплату сотрудника\n'))
+    employee['phone'] = input('Введите номер телефона сотрудника\n')
+    return employee

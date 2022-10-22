@@ -63,3 +63,14 @@ def delete_employee(id: int):
         csv_writer = csv.writer(f, delimiter=';')
         for employee in database:
             csv_writer.writerow(employee.values())
+
+def update_employee(id: int):
+    database = read_csv()
+    for employee in database:
+        if id == employee['id']:
+            employee = view.get_updated_info(employee)
+    with open('database.csv', 'w', encoding='utf-8', newline='\r\n') as f:
+        csv_writer = csv.writer(f, delimiter=';')
+        for employee in database:
+            csv_writer.writerow(employee.values())
+        
