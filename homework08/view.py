@@ -1,3 +1,7 @@
+import model
+from random import randint
+
+
 def check_for_number(data: str):
     while not data.isdigit():
         data = input('Введено неверное значение. Повторите ввод.\n')
@@ -21,3 +25,13 @@ def show_employee(employee: dict):
     output = dict(zip(fields, list(employee.values())))
     for key, value in output.items():
         print(f'{key}: {value}', end=' ')
+
+def get_employee_info():
+    employee = {}
+    employee['id'] = model.check_id(randint(1, 1000))
+    employee['last_name'] = input('Введите фамилию сотрудника\n')
+    employee['first_name'] = input('Введите имя сотрудника\n')
+    employee['position'] = input('Введите должность сотрудника\n')
+    employee['salary'] = float(input('Введите зарплату сотрудника\n'))
+    employee['phone'] = input('Введите номер телефона сотрудника\n')
+    return employee

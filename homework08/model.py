@@ -1,3 +1,4 @@
+from random import randint
 import view
 import csv
 import json
@@ -16,4 +17,11 @@ def read_csv():
             employee['phone'] = row[5]
             database.append(employee)
     return database
+
+def check_id(id: int):
+    database = read_csv()
+    for employee in database:
+        while id == employee['id']:
+            id = randint(1, 1000)
+    return id 
 
