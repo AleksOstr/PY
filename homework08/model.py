@@ -35,3 +35,9 @@ def add_employee():
     with open('database.csv', 'a', encoding='utf-8', newline='\r\n') as f:
         csv_writer = csv.writer(f, delimiter=';')
         csv_writer.writerow(employee_info.values())
+
+def find_employee(last_name):
+    database = read_csv()
+    for employee in database:
+        if last_name in employee.values():
+            view.show_employee(employee)

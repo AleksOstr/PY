@@ -6,7 +6,7 @@ def check_for_number(data: str):
     while not data.isdigit():
         data = input('Введено неверное значение. Повторите ввод.\n')
     return data
-# 1.
+# 1. DONE
 # 2.
 # 3.
 # 4. DONE
@@ -43,3 +43,6 @@ def get_employee_info():
     employee['salary'] = float(input('Введите зарплату сотрудника\n'))
     employee['phone'] = input('Введите номер телефона сотрудника\n')
     return employee
+ 
+def get_last_name():
+    return input('Введите фамилию сотрудника\n')
