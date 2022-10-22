@@ -16,3 +16,4 @@ def read_csv():
             employee['phone'] = row[5]
             database.append(employee)
     return database
+

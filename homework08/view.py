@@ -15,4 +15,9 @@ def main_menu():
 8. Экспортировать данные в формате csv\n\
 9. Завершить работу')
     return int(check_for_number(input()))
-    
+
+def show_employee(employee: dict):
+    fields = ['ID','Фамилия','Имя','Должность','Зарплата','Телефон']
+    output = dict(zip(fields, list(employee.values())))
+    for key, value in output.items():
+        print(f'{key}: {value}', end=' ')
