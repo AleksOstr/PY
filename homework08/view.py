@@ -6,7 +6,15 @@ def check_for_number(data: str):
     while not data.isdigit():
         data = input('Введено неверное значение. Повторите ввод.\n')
     return data
-
+# 1.
+# 2.
+# 3.
+# 4. DONE
+# 5.
+# 6.
+# 7.
+# 8.
+# 9. DONE
 def main_menu():
     print('Выберите необходимое действие:\n\
 1. Найти сотрудника\n\

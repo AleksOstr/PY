@@ -2,6 +2,11 @@ from random import randint
 import view
 import csv
 import json
+import sys
+
+
+def stop_programm():
+    sys.exit()
 
 def read_csv():
     database = []
