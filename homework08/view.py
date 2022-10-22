@@ -7,7 +7,7 @@ def check_for_number(data: str):
         data = input('Введено неверное значение. Повторите ввод.\n')
     return data
 # 1. DONE
-# 2.
+# 2. DONE
 # 3.
 # 4. DONE
 # 5.
@@ -46,3 +46,7 @@ def get_employee_info():
  
 def get_last_name():
     return input('Введите фамилию сотрудника\n')
+
+def get_employee_position():
+    return input('Введите должность сотрудника\n')
+

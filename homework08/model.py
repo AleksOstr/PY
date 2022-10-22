@@ -41,3 +41,9 @@ def find_employee(last_name):
     for employee in database:
         if last_name in employee.values():
             view.show_employee(employee)
+
+def job_selection(job):
+    database = read_csv()
+    for employee in database:
+        if job.lower() in employee['position'].lower():
+            view.show_employee(employee)
