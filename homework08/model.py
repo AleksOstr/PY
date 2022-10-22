@@ -40,7 +40,7 @@ def add_employee():
 def find_employee(last_name):
     database = read_csv()
     for employee in database:
-        if last_name in employee.values():
+        if last_name.lower() in employee['last_name'].lower():
             view.show_employee(employee)
 
 def job_selection(job):
