@@ -53,3 +53,13 @@ def sample_by_salary(salary_range: list):
     for employee in database:
         if min(salary_range) <= employee['salary'] <= max(salary_range):
             view.show_employee(employee)
+
+def delete_employee(id: int):
+    database = read_csv()
+    for employee in database:
+        if id == employee['id']:
+            database.pop(database.index(employee))
+    with open('database.csv', 'w', encoding='utf-8', newline='\r\n') as f:
+        csv_writer = csv.writer(f, delimiter=';')
+        for employee in database:
+            csv_writer.writerow(employee.values())

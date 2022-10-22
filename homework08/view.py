@@ -10,10 +10,10 @@ def check_for_number(data: str):
 # 2. DONE
 # 3. DONE
 # 4. DONE
-# 5.
+# 5. DONE
 # 6.
 # 7.
-# 8.
+# 8. DONE
 # 9. DONE
 def main_menu():
     print('Выберите необходимое действие:\n\
@@ -54,4 +54,7 @@ def get_employee_position():
 def get_salary_range():
     salary_range = list(map(float, input('Введите диапазон через тире\n').split('-')))
     return salary_range
+
+def get_id():
+    return int(check_for_number(input('Введите ID сотрудника\n')))
 
