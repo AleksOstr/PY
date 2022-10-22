@@ -73,4 +73,8 @@ def update_employee(id: int):
         csv_writer = csv.writer(f, delimiter=';')
         for employee in database:
             csv_writer.writerow(employee.values())
-        
+
+def export_json():
+    database = read_csv()
+    with open('database.json', 'w') as f:
+        json.dump(database, f)
