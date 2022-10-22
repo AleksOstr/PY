@@ -2,7 +2,7 @@ import view
 import csv
 import json
 
-def read_csv(filename: str):
+def read_csv():
     with open('databse.csv', 'r', encoding='utf-8') as file:
         reader = csv.reader(file)
     database = []
