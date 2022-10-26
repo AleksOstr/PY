@@ -3,6 +3,8 @@
 from emoji import emojize as em
 from random import randint
 
+x = em(':x:', language='alias')
+o = em(':o:', language='alias')
 
 def check_input(data: str):
     while not data.isdigit() or not 1 <= int(data) <=9:
@@ -27,37 +29,37 @@ def show_field(arr):
 
 
 def check_field(arr):
-    if arr[0] == em(':x:', language='alias') and arr[1] == em(':x:', language='alias') and arr[2] == em(':x:', language='alias'):
+    if arr[0] == x and arr[1] == x and arr[2] == x:
         return True
-    elif arr[3] == em(':x:', language='alias') and arr[4] == em(':x:', language='alias') and arr[5] == em(':x:', language='alias'):
+    elif arr[3] == x and arr[4] == x and arr[5] == x:
         return True
-    elif arr[6] == em(':x:', language='alias') and arr[7] == em(':x:', language='alias') and arr[8] == em(':x:', language='alias'):
+    elif arr[6] == x and arr[7] == x and arr[8] == x:
         return True
-    elif arr[0] == em(':x:', language='alias') and arr[3] == em(':x:', language='alias') and arr[6] == em(':x:', language='alias'):
+    elif arr[0] == x and arr[3] == x and arr[6] == x:
         return True
-    elif arr[1] == em(':x:', language='alias') and arr[4] == em(':x:', language='alias') and arr[7] == em(':x:', language='alias'):
+    elif arr[1] == x and arr[4] == x and arr[7] == x:
         return True
-    elif arr[2] == em(':x:', language='alias') and arr[5] == em(':x:', language='alias') and arr[8] == em(':x:', language='alias'):
+    elif arr[2] == x and arr[5] == x and arr[8] == x:
         return True
-    elif arr[0] == em(':x:', language='alias') and arr[4] == em(':x:', language='alias') and arr[8] == em(':x:', language='alias'):
+    elif arr[0] == x and arr[4] == x and arr[8] == x:
         return True
-    elif arr[2] == em(':x:', language='alias') and arr[4] == em(':x:', language='alias') and arr[6] == em(':x:', language='alias'):
+    elif arr[2] == x and arr[4] == x and arr[6] == x:
         return True
-    elif arr[0] == em(':o:', language='alias') and arr[1] == em(':o:', language='alias') and arr[2] == em(':o:', language='alias'):
+    elif arr[0] == o and arr[1] == o and arr[2] == o:
         return True
-    elif arr[3] == em(':o:', language='alias') and arr[4] == em(':o:', language='alias') and arr[5] == em(':o:', language='alias'):
+    elif arr[3] == o and arr[4] == o and arr[5] == o:
         return True
-    elif arr[6] == em(':o:', language='alias') and arr[7] == em(':o:', language='alias') and arr[8] == em(':o:', language='alias'):
+    elif arr[6] == o and arr[7] == o and arr[8] == o:
         return True
-    elif arr[0] == em(':o:', language='alias') and arr[3] == em(':o:', language='alias') and arr[6] == em(':o:', language='alias'):
+    elif arr[0] == o and arr[3] == o and arr[6] == o:
         return True
-    elif arr[1] == em(':o:', language='alias') and arr[4] == em(':o:', language='alias') and arr[7] == em(':o:', language='alias'):
+    elif arr[1] == o and arr[4] == o and arr[7] == o:
         return True
-    elif arr[2] == em(':o:', language='alias') and arr[5] == em(':o:', language='alias') and arr[8] == em(':o:', language='alias'):
+    elif arr[2] == o and arr[5] == o and arr[8] == o:
         return True
-    elif arr[0] == em(':o:', language='alias') and arr[4] == em(':o:', language='alias') and arr[8] == em(':o:', language='alias'):
+    elif arr[0] == o and arr[4] == o and arr[8] == o:
         return True
-    elif arr[2] == em(':o:', language='alias') and arr[4] == em(':o:', language='alias') and arr[6] == em(':o:', language='alias'):
+    elif arr[2] == o and arr[4] == o and arr[6] == o:
         return True
     else:
         return False
@@ -84,9 +86,9 @@ while game_is_on:
                 print('Игрок 1, ваш ход\n')
                 show_field(cells)
                 move = int(check_input(input('Выберите ячейку\n')))
-                while cells[move-1] == em(':x:', language='alias') or cells[move-1] == em(':o:', language='alias'):
+                while cells[move-1] == x or cells[move-1] == o:
                     move = int(check_input(input('Эта ячейка уже занята! Выберите другую\n')))
-                cells[move-1] = em(':x:', language='alias')
+                cells[move-1] = x
                 player1 = False
                 free_cells -= 1
                 finish = check_field(cells)
@@ -94,9 +96,9 @@ while game_is_on:
                 print('Игрок 2 Ваш ход\n')
                 show_field(cells)
                 move = int(check_input(input('Выберите ячейку\n')))
-                while cells[move-1] == em(':x:', language='alias') or cells[move-1] == em(':o:', language='alias'):
+                while cells[move-1] == x or cells[move-1] == o:
                     move = int(check_input(input('Эта ячейка уже занята! Выберите другую\n')))
-                cells[move-1] = em(':o:', language='alias')
+                cells[move-1] = o
                 player1 = True
                 free_cells -= 1
                 finish = check_field(cells)
@@ -127,17 +129,17 @@ while game_is_on:
                 print('Игрок 1, ваш ход\n')
                 show_field(cells)
                 move = int(check_input(input('Выберите ячейку\n')))
-                while cells[move-1] == em(':x:', language='alias') or cells[move-1] == em(':o:', language='alias'):
+                while cells[move-1] == x or cells[move-1] == o:
                     move = int(check_input(input('Эта ячейка уже занята! Выберите другую\n')))
-                cells[move-1] = em(':x:', language='alias')
+                cells[move-1] = x
                 player = False
                 free_cells -= 1
                 finish = check_field(cells)
             else:
                 move = randint(0, len(cells)-1)
-                while cells[move] == em(':x:', language='alias') or cells[move] == em(':o:', language='alias'):
+                while cells[move] == x or cells[move] == o:
                     move = randint(0, len(cells)-1)
-                cells[move] = em(':o:', language='alias')
+                cells[move] = o
                 player = True
                 free_cells -= 1
                 print('Компьютер делает ход\n')
