@@ -11,7 +11,19 @@ def print_field(field):
 {field[1][0]} | {field[1][1]} | {field[1][2]} \n\
 {field[2][0]} | {field[2][1]} | {field[2][2]} \n'
 
-def check_cell(field, string):
+def check_input_digit(string: str):
+    if string.isdigit():
+        return True
+    else:
+        return False
+
+def check_input_range(string:str):
+    if int(string) in range(1, 10):
+        return True
+    else:
+        return False
+
+def check_cell(field, string:str):
     if string == '1' and field[0][0] != '':
         return False
     elif string == '2' and field[0][1] != '':
@@ -63,7 +75,7 @@ def player_move(field, string: str):
         return field
     
     
-def check_win(field, symbol):
+def check_win(field, symbol:str):
     win = False
     for i in range(3):
         if field[i][0] == field[i][1] == field[i][2] == symbol:
@@ -83,7 +95,7 @@ def check_draw(field):
         draw = True
     return draw
 
-def bot_check_line(f1, f2, f3, symbol):
+def bot_check_line(f1, f2, f3, symbol: str):
     chance = False
     if f1 == '' and f2 == symbol and f3 == symbol:
         chance = True

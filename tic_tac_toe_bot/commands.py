@@ -7,12 +7,16 @@ field = []
 async def command_start(message: types.Message):
     global field
     field = f.new_game()
+    await message.answer(a.welcome)
     await message.answer(f.print_field(field))
 
 async def making_moves(message: types.Message):
     global field
     if field != []:
-        if int(message.text) not in range(1, 10):
+        if not f.check_input_digit(message.text):
+            await message.answer(a.error)
+            await message.answer(f.print_field(field))
+        if not f.check_input_range(message.text):
             await message.answer(a.wrong_cell)
         else:
             if not f.check_cell(field, message.text):
