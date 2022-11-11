@@ -11,6 +11,28 @@ def print_field(field):
 {field[1][0]} | {field[1][1]} | {field[1][2]} \n\
 {field[2][0]} | {field[2][1]} | {field[2][2]} \n'
 
+def check_cell(field, string):
+    if string == '1' and field[0][0] != '':
+        return False
+    elif string == '2' and field[0][1] != '':
+        return False
+    elif string == '3' and field[0][2] != '':
+        return False
+    elif string == '4' and field[1][0] != '':
+        return False
+    elif string == '5' and field[1][1] != '':
+        return False
+    elif string == '6' and field[1][2] != '':
+        return False
+    elif string == '7' and field[2][0] != '':
+        return False
+    elif string == '8' and field[2][1] != '':
+        return False
+    elif string == '9' and field[2][2] != '':
+        return False
+    else:
+        return True        
+
 def player_move(field, string: str):
     if string == '1' and field[0][0] == '':
         field[0][0] = 'X'
