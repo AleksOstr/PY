@@ -1,18 +1,12 @@
 from random import randint
 
-field = [['', '', ''], ['', '', ''], ['', '', '']]
-
 def new_game():
-    global field
-    field = [['', '', ''], ['', '', ''], ['', '', '']]
-    return field
+    return [['', '', ''], ['', '', ''], ['', '', '']]
 
 def end_of_game():
-    global field
-    field = []
+    return []
 
-def player_move(string: str):
-    global field
+def player_move(field, string: str):
     if string == '1' and field[0][0] == '':
         field[0][0] = 'X'
     elif string == '2' and field[0][1] == '':
@@ -33,8 +27,7 @@ def player_move(string: str):
         field[2][2] = 'X'
     return field
     
-def check_win(symbol):
-    global field
+def check_win(field, symbol):
     win = False
     if field[0][0] == field[0][1] == field[0][2] == symbol:
         win = True
@@ -54,8 +47,7 @@ def check_win(symbol):
         win = True
     return win
 
-def check_draw():
-    global field
+def check_draw(field):
     draw = False
     if field[0].count('') == 0 and field[1].count('') == 0 and field.count('') == 0:
         draw = True
@@ -70,20 +62,20 @@ def bot_check_line(f1, f2, f3, symbol):
         f2 = 'O'
         bot_done = True
     elif f1 == symbol and f2 == symbol and f3 == '':
-        f3 == 'O'
+        f3 = 'O'
         bot_done = True
     return bot_done
 
-def bot_random_move():
-    global field
+def bot_random_move(field):
     row = randint(0, 2)
     col = randint(0, 2)
-    if field[row][col] == '':
-        field[row][col] == 'O'
+    while True:
+        if field[row][col] == '':
+            field[row][col] = 'O'
+            break
     return field
 
-def bot_move():
-    global field
+def bot_move(field):
     if bot_check_line(field[0][0], field[0][1], field[0][2], 'O'):
         return field
     elif bot_check_line(field[1][0], field[1][1], field[1][2], 'O'):
@@ -113,9 +105,9 @@ def bot_move():
     elif bot_check_line(field[0][2], field[1][2], field[2][2], 'X'):
         return field
     elif bot_check_line(field[0][0], field[1][1], field[2][2], 'X'):
-        return
+        return field
     elif bot_check_line(field[0][2], field[1][1], field[2][0], 'X'):
         return field
     else:
-        bot_random_move()
-    return field
+        bot_random_move(field)
+        return field
