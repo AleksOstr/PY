@@ -1,13 +1,16 @@
 from aiogram import types, Dispatcher
 import functions as f
 import answers as a
+from keyboards import kb
 
 field = []
 
 async def command_start(message: types.Message):
+    await message.answer(a.welcome, reply_markup=kb)
+
+async def command_new_game(message: types.Message):
     global field
     field = f.new_game()
-    await message.answer(a.welcome)
     await message.answer(f.print_field(field))
 
 async def making_moves(message: types.Message):
@@ -48,4 +51,5 @@ async def making_moves(message: types.Message):
 
 def register_handlers_commands(dp: Dispatcher):
     dp.register_message_handler(command_start, commands='start')
+    dp.register_message_handler(command_new_game, commands='new_game')
     dp.register_message_handler(making_moves)
