@@ -2,6 +2,7 @@ from aiogram import types, Dispatcher
 import functions as f
 import answers as a
 from keyboards import kb
+from symbols import x, o
 
 field = []
 
@@ -26,7 +27,7 @@ async def making_moves(message: types.Message):
                 await message.answer(a.used_cell)
             else:
                 field = f.player_move(field, message.text)
-                if f.check_win(field, 'X'):
+                if f.check_win(field, x):
                     await message.answer(f.print_field(field))
                     await message.answer(a.win_answer)
                     field = f.end_of_game()
@@ -36,7 +37,7 @@ async def making_moves(message: types.Message):
                     field = f.end_of_game()
                 else:
                     field = f.bot_move(field)
-                    if f.check_win(field, 'O'):
+                    if f.check_win(field, o):
                         await message.answer(f.print_field(field))
                         await message.answer(a.lose_answer)
                         field = f.end_of_game()
