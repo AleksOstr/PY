@@ -9,7 +9,7 @@ def message_logger(message: types.Message, result):
  Имя: {message.from_user.first_name}\
  Фамилия: {message.from_user.last_name}\
  Сообщение: {message.text}\
- Результат: {result}')
+ Результат: {result}\n')
 
 def err_logger(message: types.Message, err):
     with open('log.txt', 'a') as f:
@@ -19,4 +19,4 @@ def err_logger(message: types.Message, err):
  Имя: {message.from_user.first_name}\
  Фамилия: {message.from_user.last_name}\
  Сообщение: {message.text}\
- Ошибка: {err}')
+ Ошибка: {err}\n')
