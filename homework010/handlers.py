@@ -1,6 +1,7 @@
 from aiogram import types, Dispatcher
 from messages import *
 from keys import kb
+from logging_system import message_logger, err_logger
 import functions as f
 
 async def command_start(message: types.Message):
@@ -15,10 +16,13 @@ async def command_examples(message: types.Message):
 async def calc(message: types.Message):
     try:
         result = str(f.calculate(message.text))
+        message_logger(message, result)
         await message.answer(result)
-    except ZeroDivisionError:
-            await message.answer(zero_div_error)
-    except (ValueError, IndexError):
+    except ZeroDivisionError as err:
+        err_logger(message, err)
+        await message.answer(zero_div_error)
+    except (ValueError, IndexError) as err:
+        err_logger(message, err)
         await message.answer(error)
 
 def register_handlers_comands(dp: Dispatcher):
